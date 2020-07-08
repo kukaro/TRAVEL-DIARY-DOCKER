@@ -5,8 +5,3 @@ else
     yum install -y dockeryum install -y dockeryum install -y docker
 if
 chmod -R 777 /var/run/docker.sock
-
-
-
-
-
