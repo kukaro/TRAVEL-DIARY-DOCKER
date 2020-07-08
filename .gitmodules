@@ -1,0 +1,3 @@
+[submodule "TRAVEL-DIARY-MYSQL-SERVER"]
+	path = TRAVEL-DIARY-MYSQL-SERVER
+	url = https://github.com/kukaro/TRAVEL-DIARY-MYSQL-SERVER
