@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  travel-diary-mysql-server-project:
+    build:
+      context: ./TRAVEL-DIARY-MYSQL-SERVER/project
+    image: travel-diary-mysql-server-project
+    container_name: travel-diary-mysql-server-project
+    command: mysqld
+    restart: always
+    # volumes:
+    #   - ./sql/:/docker-entrypoint-initdb.d/
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD="true"
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+    ports:
+      - '33306:3306'
+    expose:
+      - '33306'
