@@ -7,3 +7,6 @@
 [submodule "TRAVEL-DIARY-VIEW-SERVER"]
 	path = TRAVEL-DIARY-VIEW-SERVER
 	url = https://github.com/kukaro/TRAVEL-DIARY-VIEW-SERVER
+[submodule "TRAVEL-DIARY-PROXY-SERVER"]
+	path = TRAVEL-DIARY-PROXY-SERVER
+	url = https://github.com/kukaro/TRAVEL-DIARY-PROXY-SERVER
