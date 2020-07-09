@@ -43,6 +43,11 @@ else
     yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
     yum-config-manager --enable remi-php73
     yum install -y php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd
+    yum install -y php-mbstring
+    yum install -y php-zip
+    yum install -y php-xml
+    composer global require laravel/installer
+    ln -s /root/.composer/vendor/bin/laravel /usr/local/bin/laravel
 fi
 
 is_composer=$(which composer | wc -c)
