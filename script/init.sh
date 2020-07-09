@@ -19,7 +19,17 @@ else
 fi
 chmod -R 777 /usr/local/bin/docker-compose
 
-host_ip=$(hostname -I > conifg/ip.txt)
-host_ip=$(echo "$host_ip" | tr " " "")[0]
+if [ -d "../config" ];then
+    echo "config exist"
+else
+    echo "config doesn't exist"
+    mkdir ../config
+fi
+
+chmod -R 777 ../config
+
+host_ips=$(hostname -I)
+host_ips=$(echo "$host_ips" | tr " " "\n" | head -1)
+echo "$host_ips" > ../config/host_ip.txt
 
 cd ../ && docker-compose up -d
