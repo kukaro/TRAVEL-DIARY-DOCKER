@@ -18,3 +18,23 @@ services:
       - '33306:3306'
     expose:
       - '33306'
+
+  travel-diary-api-server-project:
+    build:
+      context: ./TRAVEL-DIARY-MYSQL-SERVER/project
+      args:
+        - HOST_IP=${HOST_IP}
+    image: travel-diary-api-server-project
+    container_name: travel-diary-api-server-project
+    command: /usr/sbin/apache2ctl -D FOREGROUND
+    restart: always
+    volumes:
+      - ./src/:/var/www/html
+    ports:
+      - '10022:22'
+      - '10080:80'
+      - '18080:8080'
+    expose:
+      - '10022'
+      - '10080'
+      - '18080'
