@@ -18,4 +18,8 @@ else
     curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 fi
 chmod -R 777 /usr/local/bin/docker-compose
+
+host_ip=$(hostname -I > conifg/ip.txt)
+host_ip=$(echo "$host_ip" | tr " " "")[0]
+
 cd ../ && docker-compose up -d
