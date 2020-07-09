@@ -21,7 +21,7 @@ services:
 
   travel-diary-api-server-project:
     build:
-      context: ./TRAVEL-DIARY-MYSQL-SERVER/project
+      context: ./TRAVEL-DIARY-API-SERVER/project
       args:
         - HOST_IP=${HOST_IP}
     image: travel-diary-api-server-project
