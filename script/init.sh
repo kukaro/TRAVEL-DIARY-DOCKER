@@ -7,7 +7,7 @@ if [ "$is_docker_exist" -gt 0 ];then
     echo "docker exist"
 else
     echo "docker doesn't exist"
-    yum install -y dockeryum install -y dockeryum install -y docker
+    yum install -y docker
 fi
 systemctl start docker.service
 is_docker_compose_exist=$(which docker-compose | wc -c)
@@ -24,6 +24,34 @@ if [ -d "../config" ];then
 else
     echo "config doesn't exist"
     mkdir ../config
+fi
+
+is_bzip2=$(which bzip2 | wc -c)
+if [ "$is_bzip2" -gt 0 ];then
+    echo "bzip2 exist"
+else
+    echo "bzip2 doesn't exist"
+    yum install -y bzip2
+fi
+
+is_php=$(which php | wc -c)
+if [ "$is_php" -gt 0 ];then
+    echo "php exist"
+else
+    echo "php doesn't exist"
+    yum install -y epel-release yum-utils
+    yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    yum-config-manager --enable remi-php73
+    yum install -y php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd
+fi
+
+is_composer=$(which composer | wc -c)
+if [ "$is_composer" -gt 0 ];then
+    echo "composer exist"
+else
+    echo "composer doesn't exist"
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ 
+    ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 fi
 
 chmod -R 777 ../config
