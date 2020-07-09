@@ -15,9 +15,9 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_PASSWORD=root
     ports:
-      - '33306:3306'
+      - '3306:3306'
     expose:
-      - '33306'
+      - '3306'
 
   travel-diary-api-server-project:
     build:
@@ -31,10 +31,8 @@ services:
     volumes:
       - ./TRAVEL-DIARY-API-SERVER/project/src/:/var/www/html
     ports:
-      - '10022:22'
-      - '10080:80'
-      - '18080:8080'
+      - '80:80'
+      - '8080:8080'
     expose:
-      - '10022'
-      - '10080'
-      - '18080'
+      - '80'
+      - '8080'
