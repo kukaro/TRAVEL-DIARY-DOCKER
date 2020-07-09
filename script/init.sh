@@ -50,14 +50,8 @@ if [ "$is_composer" -gt 0 ];then
     echo "composer exist"
 else
     echo "composer doesn't exist"
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ 
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/
     ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 fi
 
 chmod -R 777 ../config
-
-host_ip=$(hostname -I)
-host_ip=$(echo "$host_ip" | tr " " "\n" | head -1)
-echo "$host_ip" > ../config/host_ip.txt
-
-cd ../ && HOST_IP=${host_ip} docker-compose up -d
