@@ -29,7 +29,7 @@ services:
     command: /usr/sbin/apache2ctl -D FOREGROUND
     restart: always
     volumes:
-      - ./src/:/var/www/html
+      - ./TRAVEL-DIARY-API-SERVER/project/src/:/var/www/html
     ports:
       - '10022:22'
       - '10080:80'
