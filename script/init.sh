@@ -1,7 +1,7 @@
-RELATIVE_DIR=`dirname "$0"`
-cd $RELATIVE_DIR
-SHELL_PATH=`pwd -P`
-cd $SHELL_PATH
+RELATIVE_DIR=$(dirname "$0")
+cd "$RELATIVE_DIR"
+SHELL_PATH=$(pwd -P)
+cd "$SHELL_PATH"
 is_docker_exist=$(which docker | wc -c)
 if [ "$is_docker_exist" -gt 0 ];then
     echo "docker exist"
