@@ -31,6 +31,41 @@ services:
     volumes:
       - ./TRAVEL-DIARY-API-SERVER/project/src/:/var/www/html
     ports:
+      - '10080:80'
+      - '18080:8080'
+    expose:
+      - '10080'
+      - '18080'
+
+  travel-diary-view-server-project:
+    build:
+      context: ./TRAVEL-DIARY-VIEW-SERVER/project
+      args:
+        - HOST_IP=${HOST_IP}
+    image: travel-diary-view-server-project
+    container_name: travel-diary-view-server-project
+    command: /usr/sbin/apache2ctl -D FOREGROUND
+    restart: always
+    volumes:
+      - ./TRAVEL-DIARY-VIEW-SERVER/project/src/:/var/www/html
+    ports:
+      - '20080:80'
+      - '28080:8080'
+    expose:
+      - '20080'
+
+  travel-diary-proxy-server-project:
+    build:
+      context: ./TRAVEL-DIARY-PROXY-SERVER/project
+    image: travel-diary-proxy-server-project
+    container_name: travel-diary-proxy-server-project
+    command: /usr/sbin/apache2ctl -D FOREGROUND
+    restart: always
+    volumes:
+      - ./TRAVEL-DIARY-PROXY-SERVER/project/src/:/var/www/html
+    extra_hosts:
+      - traveldiary.com:${HOST_IP}
+    ports:
       - '80:80'
       - '8080:8080'
     expose:

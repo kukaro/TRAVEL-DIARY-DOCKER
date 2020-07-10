@@ -59,4 +59,13 @@ else
     ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 fi
 
+is_npm=$(which npm | wc -c)
+if [ "$is_npm" -gt 0 ];then
+    echo "npm exist"
+else
+    echo "npm doesn't exist"
+    yum install -y nodejs
+fi
+
 chmod -R 777 ../config
+

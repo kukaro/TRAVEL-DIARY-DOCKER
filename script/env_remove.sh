@@ -5,8 +5,18 @@ cd "$SHELL_PATH"
 cd ../TRAVEL-DIARY-API-SERVER/project/src/project
 
 if [ -f ".env" ];then
-    echo "env file exist"
+    echo "API's env file exist"
     rm .env
 else
-    echo "env file doesn't exist"
+    echo "API's env file doesn't exist"
+fi
+
+
+cd ../../../../TRAVEL-DIARY-VIEW-SERVER/project/src/project
+
+if [ -f ".env" ];then
+    echo "VIEW's env file exist"
+    rm .env
+else
+    echo "VIEW's env file doesn't exist"
 fi
