@@ -1,3 +1,5 @@
+source ~/.bashrc
+
 RELATIVE_DIR=$(dirname "$0")
 cd "$RELATIVE_DIR"
 SHELL_PATH=$(pwd -P)
@@ -64,7 +66,9 @@ if [ "$is_npm" -gt 0 ];then
     echo "npm exist"
 else
     echo "npm doesn't exist"
-    yum install -y nodejs
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash 
+    source ~/.bashrc
+    nvm install 11.6.0 
 fi
 
 chmod -R 777 ../config
