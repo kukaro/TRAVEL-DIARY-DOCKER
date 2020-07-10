@@ -22,6 +22,7 @@ else
 fi
 chmod -R 777 . 
 php artisan key:generate
+php artisan jwt:secret
 
 cd ../../../../TRAVEL-DIARY-VIEW-SERVER/project/src/project
 composer install
