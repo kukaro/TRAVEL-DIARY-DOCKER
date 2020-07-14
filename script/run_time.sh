@@ -19,10 +19,11 @@ else
     sed -ri "s/DB_HOST=127.0.0.1/DB_HOST=$host_ip/g" .env
     sed -ri "s/DB_DATABASE=laravel/DB_DATABSE=td_db/g" .env
     sed -ri "s/DB_PASSWORD=/DB_PASSWORD=root/g" .env
+    chmod -R 777 .
+    php artisan key:generate
+    php artisan jwt:secret
 fi
-chmod -R 777 . 
-php artisan key:generate
-php artisan jwt:secret
+
 
 cd ../../../../TRAVEL-DIARY-VIEW-SERVER/project/src/project
 composer install
