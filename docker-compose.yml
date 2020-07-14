@@ -71,17 +71,3 @@ services:
     expose:
       - '80'
       - '8080'
-
-  travel-diary-storage-server-project:
-    build:
-      context: ./TRAVEL-DIARY-STORAGE-SERVER/project
-    image: travel-diary-storage-server-project
-    container_name: travel-diary-storage-server-project
-    command: /usr/sbin/apache2ctl -D FOREGROUND
-    restart: always
-    ports:
-      - '50080:80'
-      - '58080:8080'
-    expose:
-      - '50080'
-      - '58080'
